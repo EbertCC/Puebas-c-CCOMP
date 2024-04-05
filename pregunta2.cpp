@@ -27,9 +27,29 @@ public:
 			anio = 1900;
 		}
 		
-		dia = di;
+		if(di >= 1 && di <= diamesmax(mes) ){
+			dia = di;
+		} else{
+			dia = 1;
+		}
+		//dia = di;
 		//mes = me ;
 		//anio = a;
+	}
+	
+	int diamesmax(int num){
+		if(mes == 2){
+			if(esbisiesto() == true){
+				return 29;
+			} else {
+				return 28;
+			}
+		}
+		else if(mes == 4 || mes == 6 ||mes == 9 ||mes == 11){
+			return 30;
+		} else {
+			return 31;
+		}
 	}
 	
 	void setDia(int d){
@@ -63,7 +83,7 @@ public:
 	}
 	bool esbisiesto()const{
 		
-		if(anio % 4 == 0 || anio % 400 == 0 ){
+		if(anio % 4 == 0 &&( anio % 100 != 0 || anio % 400 == 0 )){
 			return true;
 		} else {
 			return false;
@@ -80,15 +100,16 @@ public:
 
 int main(){
 	
-	fecha fecha_1(3,1,2020) ;
-	fecha fecha_2(20,12,1500) ;
+	fecha fecha_1(29,2,2020) ;
+	fecha fecha_2(15,14,2019) ;
+	fecha fecha_3(20,12,1500) ;
 	
 	//fecha_1.setMes(12);
 	
 	fecha_1.imprimirFecha();
 	cout<<endl;
 	if(fecha_1.esbisiesto() == 1){
-		cout<<"esbisiesto "<<endl;
+		cout<<"es bisiesto "<<endl;
 	} else {
 		cout << "no es bisiesto"<<endl;
 	}
@@ -104,6 +125,16 @@ int main(){
 		cout << "no es bisiesto"<<endl;
 	}
 	
+	fecha_3.imprimirFecha();
+	cout<<endl;
+	if(fecha_3.esbisiesto() == 1){
+		cout<<"esbisiesto "<<endl;
+	} else {
+		cout << "no es bisiesto"<<endl;
+	}
+	
+	
+	cout<<fecha_1.diamesmax(12);
 	
 	
 	
