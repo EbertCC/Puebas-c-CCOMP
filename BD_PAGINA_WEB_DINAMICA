@@ -1,0 +1,13 @@
+CREATE DATABASE bd_formulario;
+
+USE bd_formulario;
+
+CREATE TABLE Usuarios (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    nombre_apellidos VARCHAR(100) NOT NULL,
+    experiencia_laboral TEXT NOT NULL,
+    formacion TEXT NOT NULL,
+    nivel_ingles VARCHAR(20) NOT NULL,
+    aptitudes VARCHAR(100) NOT NULL,
+    habilidades VARCHAR(255) NOT NULL
+);
